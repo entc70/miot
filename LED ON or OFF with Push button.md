@@ -1,5 +1,3 @@
-# Experiment 2
-
 ## LED ON/OFF
 ```python
 from gpiozero import LED
