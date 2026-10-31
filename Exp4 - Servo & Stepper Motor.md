@@ -38,10 +38,10 @@ except KeyboardInterrupt:
 from gpiozero import OutputDevice
 from time import sleep
 # Pin Definitions
-IN1 = OutputDevice(14)
-IN2 = OutputDevice(15)
-IN3 = OutputDevice(18)
-IN4 = OutputDevice(23)
+IN1 = OutputDevice(17)
+IN2 = OutputDevice(18)
+IN3 = OutputDevice(27)
+IN4 = OutputDevice(22)
 # Define step sequence for the motor
 step_sequence = [
     [1, 0, 0, 0],
