@@ -70,7 +70,8 @@ mosquitto_sub -h broker.hivemq.com -t "rpi5/dht11/data"
 
 The subscriber should display the JSON messages published by the first terminal.
 
-### Step 7: Create the Python subscriber (optional)
+
+### Step 7: Create the Python subscriber **(optional)**
 
 Activate the environment in the second terminal:
 
@@ -145,7 +146,7 @@ finally:
     print("MQTT disconnected.")
 ```
 
-### Subscriber — `mqtt_subscriber.py`
+### Subscriber **(Optional)** — `mqtt_subscriber.py`
 
 ```python
 import paho.mqtt.client as mqtt
@@ -177,10 +178,3 @@ client.connect("broker.hivemq.com", 1883, 60)
 # Keep listening forever
 client.loop_forever()
 ```
-
-## Output
-
-- **Publisher (page 3):** The terminal shows repeated temperature and humidity readings being sent as JSON messages to the MQTT broker. The screenshot also shows occasional DHT11 read/checksum errors, followed by subsequent readings.
-- **Subscriber (page 3):** The terminal displays the received temperature and humidity values, confirming that messages are being received from the MQTT topic.
-
-> **Note:** The original PDF's code image confirms the publisher and subscriber logic. Some OCR-extracted filenames and package names contained spacing/character-recognition errors; they have been normalized here (for example, `paho-mqtt`, `mosquitto` and `mqtt-env`) so the commands are copyable.
