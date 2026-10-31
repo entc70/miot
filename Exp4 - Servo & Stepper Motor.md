@@ -2,7 +2,6 @@
 ```python
 import time
 from gpiozero import AngularServo
-from gpiozero.pins.pigpio import PiGPIOFactory
 
 # Initialize the servo on GPIO 18
 servo = AngularServo(
@@ -30,7 +29,7 @@ try:
 
 except KeyboardInterrupt:
     print("\nProgram stopped by user.")
-    servo.detach()
+    servo.close()
 ```
 
 ## 2)	ULN2003 Stepper Motor:
@@ -60,8 +59,11 @@ def set_step(w1, w2, w3, w4):
     IN4.value = w4
 
 def step_motor(steps, direction=1, delay=0.01):
+
+    sequence = step_sequence if direction > 0 else reversed(step_sequence)
+
     for _ in range(steps):
-        for step in (step_sequence if direction > 0 else reversed(step_sequence)):
+        for step in (sequence):
             set_step(*step)
             sleep(delay)
 
