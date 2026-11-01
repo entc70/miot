@@ -28,14 +28,12 @@ pip install adafruit-blinka
 pip install adafruit-circuitpython-dht paho-mqtt
 ```
 
-For the `lgpio` dependency on Raspberry Pi OS, if required:
+For the `lgpio` dependency on Raspberry Pi OS:
 
 ```bash
 sudo apt update
 sudo apt install python3-lgpio -y
 ```
-
-If the virtual environment cannot access the system-installed package, recreate it using `--system-site-packages` before reinstalling the Python libraries.
 
 ### Step 4: Create the publisher program
 
