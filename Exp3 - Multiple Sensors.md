@@ -18,15 +18,15 @@ while True:
 ## LM35 Sensor (Arduino)
 | MCP3008 pin | Raspberry Pi physical pin | 
 |-------------|---------------------------|
-| 16 VDD	Pin 1 | 3.3V |
-| 15 VREF	| 3.3V |
-| 14 AGND |	 GND |
-| 13	DGND |	  GND |
-| 12	CLK	|   GPIO11 |
-| 11	DOUT |	  GPIO9 |
-| 10	DIN	|   GPIO10 |
-| 9	CS	|   GPIO8 |
-| 1	CH0	| LM35 - Vout |
+| VDD | 3.3V |
+| VREF | 3.3V |
+| AGND |	 GND |
+| DGND |	  GND |
+| CLK	|   GPIO11 (SCLK) |
+| DOUT |	  GPIO9 (MISO) |
+| DIN	|   GPIO10 (MOSI) |
+| CS	|   GPIO8 (CE0) |
+| CH0	| LM35 - Vout |
 
 ```python
 from gpiozero import MCP3008
