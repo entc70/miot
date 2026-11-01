@@ -75,3 +75,44 @@ try:
 except KeyboardInterrupt:
     print("Program stopped by user")
 ```
+
+## 3) L298N
+```python
+import RPi.GPIO as GPIO
+import time
+
+# Use BCM pin numbering
+GPIO.setmode(GPIO.BCM)
+
+IN1 = 27
+IN2 = 22
+ENA = 18
+
+GPIO.setup(IN1, GPIO.OUT)
+GPIO.setup(IN2, GPIO.OUT)
+GPIO.setup(ENA, GPIO.OUT)
+
+# Setup PWM on ENA at 100Hz
+pwm = GPIO.PWM(ENA, 100)
+pwm.start(100)  # 100% speed
+
+try:
+  print("Moving Forward")
+  GPIO.output(IN1, GPIO.HIGH)
+  GPIO.output(IN2, GPIO.LOW)
+  time.sleep(2)
+
+  print("Stopping")
+  GPIO.output(IN1, GPIO.LOW)
+  GPIO.output(IN2, GPIO.LOW)
+  time.sleep(1)
+
+  print("Moving Backward")
+  GPIO.output(IN1, GPIO.LOW)
+  GPIO.output(IN2, GPIO.HIGH)
+  time.sleep(2)
+
+finally:
+  pwm.stop()
+  GPIO.cleanup()
+```
