@@ -18,17 +18,20 @@ void setup() {
 }
 
 void loop() {
+
+    // Send message to Raspberry Pi
     Serial.println("Hello Pi");
-    delay(1000);
 
-    // If Pi sends data back
+    // Check incoming Bluetooth data
     if (Serial.available()) {
-        char c = Serial.read();
 
-        // Echo received char back
+        String receivedData = Serial.readStringUntil('\n');
+
         Serial.print("Got from Pi: ");
-        Serial.println(c);
+        Serial.println(receivedData);
     }
+
+    delay(1000);
 }
 ```
 
