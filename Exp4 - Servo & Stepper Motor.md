@@ -78,41 +78,50 @@ except KeyboardInterrupt:
 
 ## 3) L298N
 ```python
-import RPi.GPIO as GPIO
-import time
+from gpiozero import OutputDevice, PWMOutputDevice
+from time import sleep
+# Pin Definitions
+ENA = PWMOutputDevice(13) # Hardware PWM Pin 13
+ENB = PWMOutputDevice(18) # Hardware PWM Pin 18
+IN1 = OutputDevice(17)
+IN2 = OutputDevice(14)
+IN3 = OutputDevice(27)
+IN4 = OutputDevice(22)
+# Define step sequence for the motor
+step_sequence = [
+    [1, 0, 0, 0],
+    [1, 1, 0, 0],
+    [0, 1, 0, 0],
+    [0, 1, 1, 0],
+    [0, 0, 1, 0],
+    [0, 0, 1, 1],
+    [0, 0, 0, 1],
+    [1, 0, 0, 1]
+]
+def set_step(w1, w2, w3, w4):
+    IN1.value = w1
+    IN2.value = w2
+    IN3.value = w3
+    IN4.value = w4
 
-# Use BCM pin numbering
-GPIO.setmode(GPIO.BCM)
+def step_motor(steps, direction=1, delay=0.01):
 
-IN1 = 27
-IN2 = 22
-ENA = 18
+    sequence = step_sequence if direction > 0 else reversed(step_sequence)
 
-GPIO.setup(IN1, GPIO.OUT)
-GPIO.setup(IN2, GPIO.OUT)
-GPIO.setup(ENA, GPIO.OUT)
-
-# Setup PWM on ENA at 100Hz
-pwm = GPIO.PWM(ENA, 100)
-pwm.start(100)  # 100% speed
+    ENA.value = 1  # Enable Motor 1
+    ENB.value = 1  # Enable Motor 2 
+    for _ in range(steps):
+        for step in (sequence):
+            set_step(*step)
+            sleep(delay)
+    ENA.value = 0  # Disable Motor 1
+    ENB.value = 0  # Disable Motor 2 
 
 try:
-  print("Moving Forward")
-  GPIO.output(IN1, GPIO.HIGH)
-  GPIO.output(IN2, GPIO.LOW)
-  time.sleep(2)
-
-  print("Stopping")
-  GPIO.output(IN1, GPIO.LOW)
-  GPIO.output(IN2, GPIO.LOW)
-  time.sleep(1)
-
-  print("Moving Backward")
-  GPIO.output(IN1, GPIO.LOW)
-  GPIO.output(IN2, GPIO.HIGH)
-  time.sleep(2)
-
-finally:
-  pwm.stop()
-  GPIO.cleanup()
+    while True:
+        steps = int(input("Enter number of steps (2048 for one full revolution): "))
+        direction = int(input("Enter direction (1 for forward, -1 for backward): "))
+        step_motor(steps, direction)
+except KeyboardInterrupt:
+    print("Program stopped by user")
 ```
