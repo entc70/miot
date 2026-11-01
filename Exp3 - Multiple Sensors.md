@@ -16,42 +16,31 @@ while True:
 ```
 
 ## LM35 Sensor (Arduino)
-```cpp
-const int LM35_PIN = A0;  // LM35 analog output pin
+```python
+from gpiozero import MCP3008
+from time import sleep
 
-void setup() {
-  Serial.begin(9600);  // Start serial communication at 9600 baud
-}
-void loop() {
-  int lm35Value = analogRead(LM35_PIN);  // Read analog value from LM35
-  float temperature = (lm35Value * 5.0 / 1023.0) * 100;  // Convert to Celsius
+sensor = MCP3008(channel=0, max_voltage=3.3)
 
-  // Display temperature on Serial Monitor
-  Serial.print("Temperature: ");
-  Serial.print(temperature);
-  Serial.println(" °C");
-
-  delay(1000);  // Wait for 1 second
-}
+while True:
+    voltage = sensor.value * 3.3
+    temperature = voltage * 100
+    print("Temperature:", round(temperature, 1), "°C")
+    sleep(1) 
 ```
 
 ## IR Sensor (Arduino)
-```cpp
-const int IR_PIN = 3;  // IR sensor output pin
+```python
+from gpiozero import DigitalInputDevice
+from me import sleep
 
-void setup() {
-  pinMode(IR_PIN, INPUT);  // Set IR pin as input
-  Serial.begin(9600);      // Start serial communication at 9600 baud
-}
-void loop() {
-  int irValue = digitalRead(IR_PIN);  // Read IR sensor state
+ir = DigitalInputDevice(23, pull_up=False)
 
-  if (irValue == LOW) {  // Object detected (active LOW)
-    Serial.println("Object Detected!");
-  } else {
-    Serial.println("No Object Detected.");
-  }
-  delay(500);  // Small delay for stability
-}
+while True:
+    if not ir.value:
+        print("Object Detected!")
+    else:
+         print("No Object Detected.")
+    sleep(0.5) 
 
 ```
