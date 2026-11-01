@@ -40,10 +40,7 @@ sudo apt install python3-lgpio -y
 ```bash
 nano mqtt_dht11_rpi5.py
 ```
-
-Write or paste the MQTT publisher code. The program reads the DHT11 temperature and humidity, converts the readings into JSON format, and publishes them to the MQTT broker.
-
-Save the file using `Ctrl + O`, press Enter, and exit with `Ctrl + X`.
+Or create and save using thonny.
 
 ### Step 5: Run the publisher
 
