@@ -1,18 +1,18 @@
 ## LED & Motion Sensor
 ```python
-from gpiozero import LED, Button
+from gpiozero import LED, MotionSensor
 from time import sleep
 led = LED(18)
-button = Button(17)
+pir = MotionSensor(17)
+print('Waiting for motion...')
 while True:
-    if button.is_pressed:
-        led.on()
-        print("LED ON")
-        sleep(1)
-    else:
-        led.off()
-        print("LED OFF")
-        sleep(1)
+    pir.wait_for_motion()
+    print('Motion Detected!')
+    led.on()
+    sleep(2)
+    led.off()
+    print('LED OFF')
+
 ```
 
 ## LM35 Sensor (Arduino)
