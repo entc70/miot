@@ -1,3 +1,14 @@
+## Hardware Connections
+
+Connect the HC-05 to Arduino:
+
+| HC-05 pin | Arduino connection |
+|---|---|
+| VCC | 5V |
+| GND | GND |
+| TX | RX (pin 0) |
+| RX | TX (pin 1) |
+| EN/KEY | Leave unconnected (unless configuring AT commands) |
 
 ### Arduino — HC-05 Bluetooth communication
 
