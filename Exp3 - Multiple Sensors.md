@@ -15,7 +15,7 @@ while True:
 
 ```
 
-## LM35 Sensor (Arduino)
+## LM35 Sensor
 | MCP3008 pin | Raspberry Pi physical pin | 
 |-------------|---------------------------|
 | VDD | 3.3V |
@@ -41,7 +41,7 @@ while True:
     sleep(1) 
 ```
 
-## IR Sensor (Arduino)
+## IR Sensor
 ```python
 from gpiozero import DigitalInputDevice
 from me import sleep
