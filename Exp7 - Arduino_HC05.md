@@ -8,7 +8,7 @@ Connect the HC-05 to Arduino:
 | GND | GND |
 | TX | RX (pin 0) |
 | RX | TX (pin 1) |
-| EN/KEY | Leave unconnected (unless configuring AT commands) |
+| EN/KEY | Leave unconnected |
 
 ### Arduino — HC-05 Bluetooth communication
 
