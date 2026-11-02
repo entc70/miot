@@ -39,7 +39,7 @@ Use the IP address assigned to your Raspberry Pi by the mobile hotspot. Your IP 
 
 ### Step 7: Open the webpage
 
-On your mobile phone, which is providing the hotspot, open a web browser and enter:
+On another PC connected on same LAN (make sure it is set as Private Network in Network Settings), open a web browser and enter:
 
 ```text
 http://<RASPBERRY_PI_IP>:8000
