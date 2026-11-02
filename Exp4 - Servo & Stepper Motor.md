@@ -76,7 +76,7 @@ except KeyboardInterrupt:
     print("Program stopped by user")
 ```
 
-## 3) L298N
+## 3) L298N (Try once by removing the Cap joining ENA and ENB if motor doesnt spin)
 ```python
 from gpiozero import OutputDevice, PWMOutputDevice
 from time import sleep
