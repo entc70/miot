@@ -1,5 +1,5 @@
 # Install Raspberry Pi OS on a Raspberry Pi 3 Model B using Raspberry Pi Imager
-
+### (Very Important - Take screenshot of every step's screen to put in Word file.)
 ## What you need
 
 -   Raspberry Pi 3 Model B
