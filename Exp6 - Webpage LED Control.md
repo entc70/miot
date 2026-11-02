@@ -1,6 +1,6 @@
 ## Steps
 
-### Step 1: Connect Ethernet cable to Raspberry Pi as Chit specifies on LAN, so you should be able to open the webpage on another pc.
+### Step 1: Connect Ethernet cable to Raspberry Pi as the Chit specifies (on LAN), so you should be able to open the webpage on another pc.
 
 ### Step 2: Update Raspberry Pi
 
