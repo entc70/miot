@@ -10,7 +10,6 @@ Connect the DHT11 sensor to Raspberry Pi 5 as follows:
 | DATA | GPIO4 (physical pin 7) |
 | GND | GND (physical pin 6) |
 
-Use the appropriate wiring for your three-pin or four-pin DHT11 module.
 
 ### Step 2: Create a Python virtual environment
 
