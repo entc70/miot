@@ -39,7 +39,7 @@ sudo apt install python3-lgpio -y
 ```bash
 nano mqtt_dht11_rpi5.py
 ```
-Or create and save using thonny.
+Copy the below code and do Ctrl+V in terminal then Ctrl+O, press Enter then Ctrl+X to exit. (Or just create and save using thonny but make sure location is proper)
 
 
 ### Publisher Code — `mqtt_dht11_rpi5.py`
