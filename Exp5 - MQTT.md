@@ -42,53 +42,8 @@ nano mqtt_dht11_rpi5.py
 ```
 Or create and save using thonny.
 
-### Step 5: Run the publisher
 
-```bash
-python mqtt_dht11_rpi5.py
-```
-
-### Step 6: Open a second terminal for the subscriber
-
-Open another terminal window. Install the MQTT command-line clients:
-
-```bash
-sudo apt-get update
-sudo apt-get install mosquitto-clients -y
-```
-
-Subscribe to the topic:
-
-```bash
-mosquitto_sub -h broker.hivemq.com -t "rpi5/dht11/data"
-```
-
-The subscriber should display the JSON messages published by the first terminal.
-
-
-### Step 7: Create the Python subscriber **(optional)**
-
-Activate the environment in the second terminal:
-
-```bash
-source ~/mqtt-env/bin/activate
-```
-
-Create the subscriber file:
-
-```bash
-nano mqtt_subscriber.py
-```
-
-Paste the Python subscriber code, save it, and run:
-
-```bash
-python mqtt_subscriber.py
-```
-
-## Code
-
-### Publisher — `mqtt_dht11_rpi5.py`
+### Publisher Code — `mqtt_dht11_rpi5.py`
 
 ```python
 import time
@@ -140,6 +95,53 @@ finally:
     client.disconnect()
     print("MQTT disconnected.")
 ```
+
+### Step 5: Run the publisher
+
+```bash
+python mqtt_dht11_rpi5.py
+```
+
+### Step 6: Open a second terminal for the subscriber
+
+Open another terminal window. Install the MQTT command-line clients:
+
+```bash
+sudo apt-get update
+sudo apt-get install mosquitto-clients -y
+```
+
+Subscribe to the topic:
+
+```bash
+mosquitto_sub -h broker.hivemq.com -t "rpi5/dht11/data"
+```
+
+The subscriber should display the JSON messages published by the first terminal.
+
+
+### Step 7: Create the Python subscriber **(Completely optional, skip if not asked)**
+
+Activate the environment in the second terminal:
+
+```bash
+source ~/mqtt-env/bin/activate
+```
+
+Create the subscriber file:
+
+```bash
+nano mqtt_subscriber.py
+```
+
+Paste the Python subscriber code, save it, and run:
+
+```bash
+python mqtt_subscriber.py
+```
+
+## Code
+
 
 ### Subscriber **(Optional)** — `mqtt_subscriber.py`
 
