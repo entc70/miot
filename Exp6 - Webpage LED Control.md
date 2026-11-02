@@ -1,13 +1,6 @@
 ## Steps
 
-### Step 1: Connect Raspberry Pi and mobile to the same network
-
-To access the webpage from your mobile phone, connect the Raspberry Pi to your **mobile phone's hotspot**.
-
-1. Enable the mobile hotspot on your phone (Set to 2.4 GHz only).
-2. Connect the Raspberry Pi to that hotspot using the Raspberry Pi Wi-Fi menu.
-3. Keep the mobile phone's hotspot enabled while testing.
-4. Make sure the mobile phone and Raspberry Pi are on the same local network.
+### Step 1: Connect Ethernet cable to Raspberry Pi as Chit specifies on LAN, so you should be able to open the webpage on another pc.
 
 ### Step 2: Update Raspberry Pi
 
